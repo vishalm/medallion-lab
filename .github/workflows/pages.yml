@@ -5,7 +5,7 @@ name: Pages · publish
 #
 # Two stages:
 #   1. build   tsc + vite build with BASE_PATH=/medallion-lab/
-#   2. deploy  upload artifact -> Pages
+#   2. deploy  upload artifact -> Pages.
 #
 # Optional: set repo secret `VITE_API_BASE` to a hosted backend URL
 # (e.g. a Railway public URL) to wire the deployed Pages site to a
