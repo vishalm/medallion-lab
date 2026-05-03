@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Medallion Lab — hands-on Data &amp; AI for students</title>
+    <meta name="description" content="Medallion Lab is a hands-on, browser-based playground for data warehousing and AI. Nine interactive acts cover OLTP vs OLAP, cubes, star schemas, the Medallion pipeline (Bronze → Silver → Gold), mining techniques, a SQL playground, and a CFO Finance Lab with text-to-SQL over a local LLM." />
+    <meta property="og:title" content="Medallion Lab — hands-on Data & AI" />
+    <meta property="og:description" content="Nine interactive acts. One Medallion pipeline. A CFO Finance Lab with local-LLM text-to-SQL. Built for students who want to feel how a warehouse works." />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#f1b02c" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" />
+    <script>
+      // SPA path-restore for GitHub Pages.
+      // 404.html bounces deep-link refreshes here with `?/<path>`. We
+      // restore the URL via history.replaceState so React Router sees
+      // the right path on first render.
+      (function (l) {
+        if (l.search[1] === '/') {
+          var decoded = l.search.slice(1).split('&').map(function (s) {
+            return s.replace(/~and~/g, '&');
+          }).join('?');
+          window.history.replaceState(null, null, l.pathname.slice(0, -1) + decoded + l.hash);
+        }
+      }(window.location));
+    </script>
+  </head>
+  <body class="bg-zinc-950 text-zinc-100 font-sans antialiased">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

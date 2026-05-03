@@ -1,0 +1,107 @@
+services:
+  # ----- Ollama (local LLM that powers Act 9) ---------------------------
+  # Runs in its own container so `docker compose up` is the one command
+  # to bring up the full lecture demo — no host install required.
+  # Persists models in a named volume so the model isn't re-pulled on
+  # every boot.
+  ollama:
+    image: ollama/ollama:latest
+    container_name: dataai-ollama
+    ports:
+      - "${OLLAMA_PORT:-11434}:11434"
+    volumes:
+      - ollama_models:/root/.ollama
+    healthcheck:
+      test: ["CMD-SHELL", "ollama list >/dev/null 2>&1 || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 8
+      start_period: 20s
+    restart: unless-stopped
+
+  # One-shot: pull the configured model the first time the stack comes
+  # up. Idempotent — re-running is a no-op if the model is already cached.
+  ollama-pull:
+    image: ollama/ollama:latest
+    container_name: dataai-ollama-pull
+    depends_on:
+      ollama:
+        condition: service_healthy
+    environment:
+      OLLAMA_HOST: "http://ollama:11434"
+      LLM_MODEL: "${LLM_MODEL:-qwen2.5-coder:1.5b}"
+    volumes:
+      - ollama_models:/root/.ollama
+    entrypoint: ["/bin/sh", "-c"]
+    # If the preferred model fails to pull (e.g. tag doesn't exist),
+    # fall back to llama3.2:1b — small (~1.3 GB) and runs on tiny machines.
+    command:
+      - >
+        ollama pull "${LLM_MODEL:-qwen2.5-coder:1.5b}" ||
+        ollama pull llama3.2:1b
+    restart: "no"
+
+  # ----- The lecture app ------------------------------------------------
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: dataai-amity:latest
+    container_name: dataai-amity
+    ports:
+      - "${APP_PORT:-8000}:8000"
+    environment:
+      # ----- Acts 1-8 synthetic data scale -----
+      # Bigger synthetic dataset for a classroom demo.
+      # Override via .env or `docker compose up` -e flags.
+      SEED_ROWS: "${SEED_ROWS:-25000}"
+      SEED_CUSTOMERS: "${SEED_CUSTOMERS:-1500}"
+      SEED_PRODUCTS: "${SEED_PRODUCTS:-80}"
+      SEED_STORES: "${SEED_STORES:-30}"
+      SEED_OLTP: "${SEED_OLTP:-8000}"
+      SEED_BANKING: "${SEED_BANKING:-6000}"
+      SEED_TELECOM: "${SEED_TELECOM:-10000}"
+
+      # ----- Act 9 (CFO Finance Lab) data scale -----
+      SEED_FINANCE_MONTHS: "${SEED_FINANCE_MONTHS:-12}"
+      SEED_FINANCE_EMPLOYEES: "${SEED_FINANCE_EMPLOYEES:-30}"
+      SEED_FINANCE_VENDORS: "${SEED_FINANCE_VENDORS:-20}"
+
+      # ----- LLM (Act 9 text-to-SQL) -----
+      # Defaults point at the co-located ollama service so a fresh
+      # `docker compose up` works with no .env edits.
+      # Swap providers via .env (Azure / OpenRouter / NVIDIA / OpenAI).
+      LLM_PROVIDER: "${LLM_PROVIDER:-ollama}"
+      LLM_BASE_URL: "${LLM_BASE_URL:-http://ollama:11434/v1}"
+      LLM_MODEL: "${LLM_MODEL:-qwen2.5-coder:1.5b}"
+      LLM_API_KEY: "${LLM_API_KEY:-ollama}"
+      LLM_TIMEOUT_SECONDS: "${LLM_TIMEOUT_SECONDS:-30}"
+      LLM_TEMPERATURE: "${LLM_TEMPERATURE:-0.1}"
+      LLM_AZURE_DEPLOYMENT: "${LLM_AZURE_DEPLOYMENT:-}"
+      LLM_AZURE_API_VERSION: "${LLM_AZURE_API_VERSION:-}"
+
+      # ----- Paths inside the container -----
+      DATA_DIR: "/app/data"
+      STATIC_DIR: "/app/static"
+    volumes:
+      - dataai_sqlite:/app/data
+    extra_hosts:
+      # Lets the app reach a host-installed Ollama if the user prefers
+      # that to the colocated container. Set LLM_BASE_URL=http://host.docker.internal:11434/v1
+      - "host.docker.internal:host-gateway"
+    depends_on:
+      ollama:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://127.0.0.1:8000/api/health').status==200 else 1)"]
+      interval: 20s
+      timeout: 5s
+      retries: 5
+      start_period: 25s
+    restart: unless-stopped
+
+volumes:
+  dataai_sqlite:
+    name: dataai_sqlite
+  ollama_models:
+    name: dataai_ollama_models

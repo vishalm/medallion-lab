@@ -1,0 +1,109 @@
+# ----- Python ---------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+*.egg-info/
+build/
+.eggs/
+.ipynb_checkpoints/
+
+# ----- Env / secrets (NEVER commit) -----------------------------------
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets.json
+.envrc
+
+# ----- Node / Vite ----------------------------------------------------
+node_modules/
+dist/
+.vite/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.pnpm-store/
+
+# ----- Local data (synthetic but big + ephemeral) ---------------------
+app/backend/data/*.db
+app/backend/data/*.db-journal
+app/backend/data/*.sqlite*
+app/backend/data/*.wal
+app/backend/data/*.shm
+data/
+*.csv.local
+
+# ----- Ollama / model cache (huge, pulled on demand) ------------------
+.ollama/
+ollama_models/
+
+# ----- Notebook outputs (commit clean cells only) ---------------------
+notebooks/.ipynb_checkpoints/
+notebooks/*.nbconvert.ipynb
+
+# ----- Tooling / caches -----------------------------------------------
+.cache/
+.parcel-cache/
+.next/
+.nuxt/
+.turbo/
+.vercel/
+.netlify/
+coverage/
+.sonarlint/
+.sonarwork/
+
+# ----- Editors / IDE --------------------------------------------------
+.vscode/
+.idea/
+*.iml
+*.swp
+*.swo
+.history/
+.~lock.*
+
+# ----- OS junk --------------------------------------------------------
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ----- Office / temp lockfiles ---------------------------------------
+~$*
+*~
+*.tmp
+*.bak
+*.orig
+*.local.*
+
+# ----- Claude Code / agent local config (per-machine) ----------------
+.claude/settings.local.json
+.claude/local/
+
+# ----- Docker / build artifacts --------------------------------------
+*.tar
+*.tar.gz
+.docker/
+
+# ----- Railway / deploy artifacts -------------------------------------
+.railway/

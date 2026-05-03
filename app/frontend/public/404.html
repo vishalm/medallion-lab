@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Medallion Lab</title>
+    <script>
+      // SPA fallback for GitHub Pages.
+      // GH Pages serves 404.html for any path that isn't a real file. We
+      // bounce to index.html with the original path encoded in a `?/`
+      // search param; index.html restores it via history.replaceState.
+      // (Pattern from rafgraph/spa-github-pages.)
+      (function () {
+        var pathSegmentsToKeep = 1; // /medallion-lab/ is one segment
+        var l = window.location;
+        l.replace(
+          l.protocol + '//' + l.hostname +
+          (l.port ? ':' + l.port : '') +
+          l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') +
+          '/?/' +
+          l.pathname.split('/').slice(1 + pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+          (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+          l.hash
+        );
+      })();
+    </script>
+  </head>
+  <body>Loading…</body>
+</html>
