@@ -136,19 +136,54 @@ jobs:
       - name: Smoke-test the container
         run: |
           set -euo pipefail
-          docker run -d --name medallion-test -p 8000:8000 medallion-lab:ci
-          # Wait for the seed-on-empty boot to finish.
-          for i in $(seq 1 30); do
-            if curl -fsS http://localhost:8000/api/health | grep -q '"seeded": true'; then
+
+          # Boot with reduced seed sizes — the default 25k+ rows is fine
+          # on a laptop but slow on a small GH runner. We just need to
+          # prove the container serves the API end-to-end.
+          docker run -d --name medallion-test \
+            -e SEED_ROWS=800 \
+            -e SEED_CUSTOMERS=120 \
+            -e SEED_PRODUCTS=40 \
+            -e SEED_STORES=12 \
+            -e SEED_OLTP=400 \
+            -e SEED_BANKING=400 \
+            -e SEED_TELECOM=400 \
+            -e SEED_FINANCE_MONTHS=6 \
+            -e SEED_FINANCE_EMPLOYEES=12 \
+            -e SEED_FINANCE_VENDORS=12 \
+            -p 8000:8000 medallion-lab:ci
+
+          # Poll up to 90s. The grep regex tolerates either compact
+          # ("seeded":true) or pretty ("seeded": true) JSON.
+          ready=""
+          for i in $(seq 1 90); do
+            response=$(curl -fsS http://localhost:8000/api/health 2>/dev/null || true)
+            if printf '%s' "$response" | grep -Eq '"seeded"[[:space:]]*:[[:space:]]*true'; then
               echo "container healthy after ${i}s"
+              echo "health: $response"
+              ready=1
               break
             fi
             sleep 1
-            if [ "$i" -eq 30 ]; then
-              echo "container failed to become healthy"
-              docker logs medallion-test
-              exit 1
-            fi
           done
+
+          if [ -z "$ready" ]; then
+            echo "container failed to become healthy after 90s"
+            echo "last health response: ${response:-<empty>}"
+            echo "----- docker logs -----"
+            docker logs medallion-test
+            docker stop medallion-test >/dev/null || true
+            exit 1
+          fi
+
+          # Smoke each major API surface once.
+          echo "----- /api/health -----"
+          curl -fsS http://localhost:8000/api/health
+          echo
+          echo "----- /api/finance/counts -----"
           curl -fsS http://localhost:8000/api/finance/counts
+          echo
+          echo "----- /api/act5/counts -----"
+          curl -fsS http://localhost:8000/api/act5/counts
+
           docker stop medallion-test >/dev/null
