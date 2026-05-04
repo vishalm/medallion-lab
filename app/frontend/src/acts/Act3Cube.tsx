@@ -23,33 +23,33 @@ interface MoveState {
 const MOVES: Record<Move, MoveState> = {
   slice: {
     move: 'slice',
-    label: 'SLICE — one dim fixed',
+    label: 'SLICE - one dim fixed',
     group_by: ['category', 'country'],
     filters: { quarter: '1' },
-    explain: '"Sales in Q1" — cut one plane of the cube, keep the other dims free.',
+    explain: '"Sales in Q1" - cut one plane of the cube, keep the other dims free.',
   },
   dice: {
     move: 'dice',
-    label: 'DICE — many dims fixed',
+    label: 'DICE - many dims fixed',
     group_by: ['category'],
     filters: { quarter: '1', country: 'India', channel: 'mobile' },
-    explain: '"Q1, India, Mobile" — a small sub-cube.',
+    explain: '"Q1, India, Mobile" - a small sub-cube.',
   },
   drill: {
     move: 'drill',
-    label: 'DRILL-DOWN — go deeper',
+    label: 'DRILL-DOWN - go deeper',
     group_by: ['category', 'brand'],
     explain: 'Category → Brand. Same measure, finer grain.',
   },
   rollup: {
     move: 'rollup',
-    label: 'ROLL-UP — go higher',
+    label: 'ROLL-UP - go higher',
     group_by: ['category'],
     explain: 'Aggregate up. Same measure, coarser grain.',
   },
   pivot: {
     move: 'pivot',
-    label: 'PIVOT — rotate axes',
+    label: 'PIVOT - rotate axes',
     group_by: ['country', 'category'],
     explain: 'Swap the axes. Same data, different question.',
   },
@@ -108,7 +108,7 @@ export default function Act3Cube() {
                   move === m ? 'btn-gold' : ''
                 }`}
               >
-                {MOVES[m].label.split(' —')[0]}
+                {MOVES[m].label.split(' -')[0]}
               </button>
             ))}
           </div>
@@ -135,7 +135,7 @@ export default function Act3Cube() {
               const label = Object.entries(r)
                 .filter(([k]) => k !== 'value')
                 .map(([k, v]) => `${k}=${v}`)
-                .join(' · ') || '—';
+                .join(' · ') || '-';
               return (
                 <motion.div
                   key={label + i}
@@ -168,12 +168,12 @@ export default function Act3Cube() {
       <div className="grid lg:grid-cols-2 gap-6 mt-6">
         <TryThis>
           Press <strong>DRILL-DOWN</strong>, then <strong>PIVOT</strong>. The data underneath is
-          identical — but the question you can answer with it changes completely. That is the
+          identical - but the question you can answer with it changes completely. That is the
           whole point of dimensional modeling.
         </TryThis>
         <StudentNote title="Modern angle">
           You will not build a literal cube in 2026. You will build a star schema in Snowflake or
-          BigQuery and query it with SQL — and every BI tool you touch will render the five moves
+          BigQuery and query it with SQL - and every BI tool you touch will render the five moves
           above. <strong>Slice, dice, drill-down, roll-up, pivot.</strong> The shape stays.
         </StudentNote>
       </div>

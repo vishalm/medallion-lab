@@ -1,7 +1,7 @@
 /**
  * Theme toggle. Two visual modes:
- *   - 'pill'   wide segmented switch (sun | moon) — for the desktop sidebar
- *   - 'icon'   single icon button — for compact contexts (mobile top nav, FAB row)
+ *   - 'pill'   wide segmented switch (sun | moon) - for the desktop sidebar
+ *   - 'icon'   single icon button - for compact contexts (mobile top nav, FAB row)
  *
  * Keyboard: Space / Enter toggles. Aria label flips with state.
  */

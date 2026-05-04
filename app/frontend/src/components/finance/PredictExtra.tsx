@@ -46,7 +46,7 @@ export function PredictExtra() {
             <Stat
               label="Weekend share"
               tone="violet"
-              value={dow ? `${dow.weekend_share_pct.toFixed(1)}%` : '—'}
+              value={dow ? `${dow.weekend_share_pct.toFixed(1)}%` : '-'}
               hint="of total spend posted on Sat/Sun"
             />
             <p className="text-xs t-3 leading-relaxed">
@@ -90,14 +90,14 @@ export function PredictExtra() {
           </div>
           <div className="space-y-2">
             <div className="grid grid-cols-3 gap-2">
-              <Stat label="Top 3"  value={conc ? `${conc.top_3_pct.toFixed(0)}%` : '—'} tone="gold" />
-              <Stat label="Top 5"  value={conc ? `${conc.top_5_pct.toFixed(0)}%` : '—'} tone="gold" />
-              <Stat label="Top 10" value={conc ? `${conc.top_10_pct.toFixed(0)}%` : '—'} tone="gold" />
+              <Stat label="Top 3"  value={conc ? `${conc.top_3_pct.toFixed(0)}%` : '-'} tone="gold" />
+              <Stat label="Top 5"  value={conc ? `${conc.top_5_pct.toFixed(0)}%` : '-'} tone="gold" />
+              <Stat label="Top 10" value={conc ? `${conc.top_10_pct.toFixed(0)}%` : '-'} tone="gold" />
             </div>
             <Stat
               label="Gini coefficient"
               tone="rose"
-              value={conc ? conc.gini.toFixed(2) : '—'}
+              value={conc ? conc.gini.toFixed(2) : '-'}
               hint="0 = perfectly even, 1 = one vendor takes everything"
             />
             <p className="text-xs t-3 leading-relaxed">
@@ -108,10 +108,10 @@ export function PredictExtra() {
         </div>
       </Panel>
 
-      <Callout tone="violet" title="Teaching point — extra PREDICT panels">
+      <Callout tone="violet" title="Teaching point - extra PREDICT panels">
         Anomalies catch yesterday. Forecasts and concentration scores manage tomorrow.{' '}
         <strong>The Silver layer feeds both.</strong> If your Silver is wrong, every model
-        on top of it inherits the same wrongness — which is why we put it first in the lecture.
+        on top of it inherits the same wrongness - which is why we put it first in the lecture.
       </Callout>
     </div>
   );

@@ -71,7 +71,7 @@ export function ShortcutsModal() {
             </header>
             <div className="p-5 space-y-5 max-h-[70vh] overflow-auto scroll-thin">
               <Section title="Navigation" rows={GLOBAL} />
-              <Section title="Act 5 — Medallion" rows={ACT5} />
+              <Section title="Act 5 - Medallion" rows={ACT5} />
               <p className="text-[11px] text-zinc-500 pt-2 border-t border-white/5">
                 Shortcuts are ignored while an input / editor is focused. Press <span className="kbd">?</span> anywhere to toggle.
               </p>

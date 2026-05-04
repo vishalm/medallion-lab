@@ -1,5 +1,5 @@
 /**
- * RichResponse — renders a text-to-SQL answer as Markdown narrative +
+ * RichResponse - renders a text-to-SQL answer as Markdown narrative +
  * an auto-picked dynamic chart + the result table.
  *
  * Backend returns:
@@ -150,7 +150,7 @@ export function RichResponse({
         </details>
       )}
 
-      {/* Always offer the raw table — even when there's a chart, students
+      {/* Always offer the raw table - even when there's a chart, students
           want to see the underlying rows. */}
       {rows.length > 0 && hint.type !== 'stat' && (
         <details className="text-xs" open={false}>

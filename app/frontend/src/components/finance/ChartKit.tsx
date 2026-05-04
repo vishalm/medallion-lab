@@ -1,5 +1,5 @@
 /**
- * ChartKit — fancy, theme-aware chart variants used by RichResponse and
+ * ChartKit - fancy, theme-aware chart variants used by RichResponse and
  * the DECIDE / PREDICT extra dashboards.
  *
  * Every chart reads colours via CSS vars (--text-*, --glass-*) so it
@@ -45,7 +45,7 @@ const isAmountLike = (col?: string) =>
   !!col && /aed|amount|spend|total|sum/i.test(col);
 
 const fmtVal = (v: any, col?: string) => {
-  if (v == null) return '—';
+  if (v == null) return '-';
   if (typeof v === 'number') {
     if (isAmountLike(col)) return `${fmtMoney(v)} AED`;
     return fmtNum(v, Number.isInteger(v) ? 0 : 2);

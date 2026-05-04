@@ -1,11 +1,11 @@
 /**
- * Theme system — light + dark, stored in localStorage, syncs to <html>.
+ * Theme system - light + dark, stored in localStorage, syncs to <html>.
  *
  * The CSS variables in styles.css read `html.dark` / `html.light` and swap
  * the entire token set. JS just toggles those classes.
  *
  * Dark is the default everywhere (local, Railway, GitHub Pages). The OS
- * `prefers-color-scheme` is intentionally ignored on first visit — the
+ * `prefers-color-scheme` is intentionally ignored on first visit - the
  * lecture is rehearsed in dark, projector contrast is calibrated for dark,
  * and we don't want a student's OS preference to flip the demo. The light
  * theme is still available via the toggle in the nav rail and persists in

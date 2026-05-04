@@ -14,10 +14,10 @@ const SOURCE_META: Record<SourceId, {
     file: 'expenses_concur.json',
     pitch: 'Employee-submitted reimbursements. Flexible form, mixed quality.',
     quirks: [
-      "submitted_date — three different formats: ISO, DD/MM/YYYY, MM-DD-YYYY",
-      "currency — mostly AED, some USD (employees travel)",
-      "merchant — sometimes 'Amazon', sometimes 'AMZN MKTPLACE' (free-text)",
-      "category — chosen by employee, occasionally wrong",
+      "submitted_date - three different formats: ISO, DD/MM/YYYY, MM-DD-YYYY",
+      "currency - mostly AED, some USD (employees travel)",
+      "merchant - sometimes 'Amazon', sometimes 'AMZN MKTPLACE' (free-text)",
+      "category - chosen by employee, occasionally wrong",
     ],
   },
   card: {
@@ -25,10 +25,10 @@ const SOURCE_META: Record<SourceId, {
     file: 'corporate_amex.csv',
     pitch: 'Bank-side feed. Clean structure but cryptic vendor strings.',
     quirks: [
-      "amount_usd — USD only, no currency column at all",
-      "vendor_str — gnarly: 'AMZN MKTPLACE', 'UBER *TRIP', 'MSFT*AZURE'",
-      "employee_id — sometimes NULL (shared cards)",
-      "no category — just card data, you have to derive it",
+      "amount_usd - USD only, no currency column at all",
+      "vendor_str - gnarly: 'AMZN MKTPLACE', 'UBER *TRIP', 'MSFT*AZURE'",
+      "employee_id - sometimes NULL (shared cards)",
+      "no category - just card data, you have to derive it",
     ],
   },
 };
@@ -92,16 +92,16 @@ export function MessStage() {
           </ul>
           <p className="mt-4 text-xs text-zinc-500 leading-relaxed">
             Two files, two shapes. Neither one alone tells the CFO what
-            they need to know — and they don't even agree on currency.
+            they need to know - and they don't even agree on currency.
           </p>
         </Panel>
       </div>
 
-      <Callout tone="violet" title="Teaching point — MESS">
+      <Callout tone="violet" title="Teaching point - MESS">
         Real finance data lands from 5–15 systems (Concur, Amex, ERP, vendor
         portals). They never agree on column names, formats, currencies, or
         vendor strings. Switch between the two sources above and watch the
-        same vendor appear differently in each — that's the gap the next
+        same vendor appear differently in each - that's the gap the next
         stage closes.
       </Callout>
     </div>

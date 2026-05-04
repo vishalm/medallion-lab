@@ -5,7 +5,7 @@
  *   mini     -> compact 360x460 popover
  *   expanded -> larger 520x680 panel
  *
- * Lives at z-40 — below ShortcutsModal (z-50) but above all act content.
+ * Lives at z-40 - below ShortcutsModal (z-50) but above all act content.
  * Uses `top: max(...)` constraint so the panel never slips under the
  * mobile top nav. Hits the same /api/finance/ask backend the AskStage
  * uses, so the LLM provider config (Ollama / Azure / OpenRouter / NVIDIA)
@@ -95,13 +95,13 @@ export function FloatingChat() {
 
   return (
     <>
-      {/* The floating action button — always present, even when chat is open */}
+      {/* The floating action button - always present, even when chat is open */}
       <button
         onClick={() => setSize(size === 'closed' ? 'mini' : 'closed')}
         aria-label={size === 'closed' ? 'Open ask chat' : 'Close ask chat'}
         className="fixed bottom-5 right-5 z-40 group"
         style={{
-          // Don't slip under the mobile top nav (~52px tall) on tiny phones —
+          // Don't slip under the mobile top nav (~52px tall) on tiny phones -
           // FAB has its own anchor at the bottom, so this is mostly cosmetic.
           paddingBottom: 'env(safe-area-inset-bottom)',
         }}
@@ -267,7 +267,7 @@ function EmptyState({ onPick, disabled }: { onPick: (q: string) => void; disable
   return (
     <div className="space-y-3">
       <p className="text-xs text-zinc-400 leading-relaxed">
-        Ask anything about the CFO finance data — spend, vendors, departments,
+        Ask anything about the CFO finance data - spend, vendors, departments,
         anomalies. The local model writes the SQL, we run it on SQLite, you get rows.
       </p>
       <div className="space-y-1.5">

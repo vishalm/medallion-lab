@@ -78,14 +78,14 @@ export default function Act2OltpOlap() {
         eyebrow="Warehouse 101"
         slideRef="7–9"
         title="Same SQL. Completely different brains."
-        subtitle="OLTP runs the business — tiny reads and writes, milliseconds. OLAP understands it — aggregates across millions of rows. Mix them up, and at 11 a.m. the intern's SUM() query crashes the bank. Watch it happen, safely."
+        subtitle="OLTP runs the business - tiny reads and writes, milliseconds. OLAP understands it - aggregates across millions of rows. Mix them up, and at 11 a.m. the intern's SUM() query crashes the bank. Watch it happen, safely."
       />
 
       <div className="grid lg:grid-cols-2 gap-6">
         {/* --- OLTP side --- */}
         <Panel
           title="OLTP · point reads + writes"
-          subtitle="gold_fact-sized table, no indexes beyond PK — the 'bank' side"
+          subtitle="gold_fact-sized table, no indexes beyond PK - the 'bank' side"
           right={
             <button onClick={() => setRunning(!running)} className="btn text-xs">
               {running ? 'Pause' : 'Resume'}
@@ -98,7 +98,7 @@ export default function Act2OltpOlap() {
               label="Avg latency"
               value={fmtMs(avgLat)}
               tone={overloaded ? 'rose' : 'emerald'}
-              hint={overloaded ? 'OLAP running — degraded' : 'healthy'}
+              hint={overloaded ? 'OLAP running - degraded' : 'healthy'}
               icon={<IconBolt size={14} />}
             />
           </div>
@@ -122,7 +122,7 @@ export default function Act2OltpOlap() {
                     {e.kind.toUpperCase()}
                   </span>
                   <span className="text-zinc-400 truncate">
-                    {e.row?.txn_id ?? '(no row)'} · {e.row?.customer_id ?? '—'} · {e.row?.amount ?? '—'}
+                    {e.row?.txn_id ?? '(no row)'} · {e.row?.customer_id ?? '-'} · {e.row?.amount ?? '-'}
                   </span>
                   <span
                     className={`ml-auto tabular-nums ${
@@ -137,7 +137,7 @@ export default function Act2OltpOlap() {
             {overloaded && (
               <div className="absolute inset-x-0 bottom-0 bg-rose-600/20 border-t border-rose-600/40 text-rose-200 text-xs px-3 py-2 flex items-center gap-2">
                 <IconAlert size={14} />
-                Query backlog detected — OLTP latency is spiking.
+                Query backlog detected - OLTP latency is spiking.
               </div>
             )}
           </div>
@@ -202,14 +202,14 @@ export default function Act2OltpOlap() {
         <WarStory title="The 11 a.m. intern query">
           A junior engineer runs <code>SELECT SUM(amount) FROM transactions</code> on the primary
           database during peak hour. Row-level locks pile up, customer transfers time out, the
-          pager goes off. Every senior has lived this. The fix isn't "be careful" — it's "build a
+          pager goes off. Every senior has lived this. The fix isn't "be careful" - it's "build a
           warehouse", which is Acts 4 and 5.
         </WarStory>
         <StudentNote title="What to take away">
           Same question, same SQL, two brains. <strong>OLTP</strong> is optimized for many small
           writes. <strong>OLAP</strong> is optimized for few huge reads. Mixing them means one
-          workload always starves the other. The <em>entire modern stack</em> — ELT, lakehouses,
-          Medallion — exists to keep them apart.
+          workload always starves the other. The <em>entire modern stack</em> - ELT, lakehouses,
+          Medallion - exists to keep them apart.
         </StudentNote>
       </div>
     </div>

@@ -90,7 +90,7 @@ export function AskStage() {
           <Field label="Model" value={llm?.model ?? '…'} />
           <Field label="Reachable" value={
             llm == null ? '…'
-              : llm.ok ? 'yes' : 'no — is Ollama running?'
+              : llm.ok ? 'yes' : 'no - is Ollama running?'
           } tone={llm?.ok ? 'ok' : 'warn'} />
         </div>
         {!llm?.ok && (
@@ -138,7 +138,7 @@ export function AskStage() {
       {turns.length === 0 ? (
         <Callout tone="violet" title="Nothing asked yet">
           Click any preset above to see the model translate a finance question into SQL,
-          run it against the Gold mart, and return rows — all in one round trip.
+          run it against the Gold mart, and return rows - all in one round trip.
         </Callout>
       ) : (
         <div className="space-y-4">
@@ -149,7 +149,7 @@ export function AskStage() {
         </div>
       )}
 
-      <Callout tone="violet" title="Teaching point — ASK">
+      <Callout tone="violet" title="Teaching point - ASK">
         Text-to-SQL turns the warehouse into a conversation. Try a preset,
         then invite a student to type any finance question. When the model
         nails it, notice what made it possible: a tiny, opinionated schema

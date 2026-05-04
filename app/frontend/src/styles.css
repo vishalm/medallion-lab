@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 /* ===========================================================
-   Theme tokens — Apple-style glass system, light + dark
+   Theme tokens - Apple-style glass system, light + dark
    ===========================================================
    Switch via <html class="dark"> or <html class="light">.
    Defaults to dark when no class is present.
@@ -51,9 +51,9 @@
 html.dark { color-scheme: dark; }
 
 html.light {
-  /* Apple-style off-white with subtle warm tint — neutral, modern, calm. */
+  /* Apple-style off-white with subtle warm tint - neutral, modern, calm. */
   --bg: #fbfaf7;
-  /* Pastel accent washes, very subtle — let the white surfaces breathe. */
+  /* Pastel accent washes, very subtle - let the white surfaces breathe. */
   --bg-grad-1: rgba(241, 176, 44, 0.13);
   --bg-grad-2: rgba(139,  92, 246, 0.08);
   --bg-grad-3: rgba( 16, 185, 129, 0.07);
@@ -66,14 +66,14 @@ html.light {
   --glass-border: rgba(15, 18, 23, 0.06);
   --glass-border-strong: rgba(15, 18, 23, 0.11);
   --glass-highlight: rgba(255, 255, 255, 1);
-  /* Soft, low-alpha shadow + clean inner highlight — Apple cards. */
+  /* Soft, low-alpha shadow + clean inner highlight - Apple cards. */
   --glass-shadow:
     0 1px 0 rgba(15, 18, 23, 0.04),
     0 1px 2px rgba(15, 18, 23, 0.04),
     0 16px 30px -18px rgba(15, 18, 23, 0.12),
     0 1px 0 rgba(255, 255, 255, 0.95) inset;
 
-  /* Type — near-black for primary, true secondary greys. */
+  /* Type - near-black for primary, true secondary greys. */
   --text-1: rgb(15 18 23);     /* almost-black, slightly warm */
   --text-2: rgb(58 60 68);
   --text-3: rgb(95 99 110);
@@ -146,7 +146,7 @@ html.light {
     color: var(--text-1);
     transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
   }
-  /* hairline highlight on the top edge — Apple-like */
+  /* hairline highlight on the top edge - Apple-like */
   .glass::before {
     content: '';
     position: absolute; inset: 0; border-radius: inherit;
@@ -317,7 +317,7 @@ html.light {
 
   /* ========= Light-mode remap of Tailwind zinc utilities =========
      Existing acts use `text-zinc-50/100/200/300/400/500/600` assuming
-     a dark canvas. In light mode those become invisible — so we remap
+     a dark canvas. In light mode those become invisible - so we remap
      the most common ones here. Specificity (html.light .x) wins over
      Tailwind's plain `.x`. */
   html.light .text-zinc-50    { color: rgb(24 24 27); }
@@ -352,7 +352,7 @@ html.light {
   html.light .hover\:bg-white\/\[0\.05\]:hover    { background: rgba(15, 18, 23, 0.05); }
   html.light .hover\:bg-white\/\[0\.06\]:hover    { background: rgba(15, 18, 23, 0.06); }
 
-  /* black/* tints (rare) — keep as-is, they already read on white */
+  /* black/* tints (rare) - keep as-is, they already read on white */
 
   /* gold accents adapt down for light mode contrast */
   html.light .text-gold-300 { color: rgb(140 97 8); }
@@ -385,7 +385,7 @@ html.light {
 .monaco-container { min-height: 260px; }
 .reactflow-wrapper { height: 560px; }
 
-/* React Flow polish — keep dark visual when it injects nodes */
+/* React Flow polish - keep dark visual when it injects nodes */
 .react-flow__node { border-radius: 14px; }
 .react-flow__node-default {
   background: linear-gradient(180deg, var(--glass-1), var(--glass-2)) !important;

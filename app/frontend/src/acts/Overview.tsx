@@ -26,7 +26,7 @@ const HERO_ACTS: TourItem[] = [
   },
   {
     n: '09', to: '/act/9', t: 'CFO Finance Lab',
-    s: 'One CFO storyline, five stages — MESS · TRUST · DECIDE · PREDICT · ASK — ending in text-to-SQL chat over a local LLM.',
+    s: 'One CFO storyline, five stages - MESS · TRUST · DECIDE · PREDICT · ASK - ending in text-to-SQL chat over a local LLM.',
     slide: 'Demo hero · with AI', Icon: IconCoin, color: 'gold', hero: true,
     badge: 'New · with AI',
   },
@@ -35,7 +35,7 @@ const HERO_ACTS: TourItem[] = [
 const TOUR: TourItem[] = [
   { n: '01', to: '/act/1', t: 'The Landscape',            s: 'Why every company is now a data company',                  slide: 'Slides 4–6',   Icon: IconGlobe,    color: 'violet' },
   { n: '02', to: '/act/2', t: 'OLTP vs OLAP',             s: 'Live: the 11-a.m. intern-crashed-the-bank query',          slide: 'Slides 7–9',   Icon: IconDatabase, color: 'rose' },
-  { n: '03', to: '/act/3', t: 'The Cube',                 s: 'Slice · Dice · Drill · Roll-up · Pivot — live on Gold',    slide: 'Slide 9',      Icon: IconCube,     color: 'violet' },
+  { n: '03', to: '/act/3', t: 'The Cube',                 s: 'Slice · Dice · Drill · Roll-up · Pivot - live on Gold',    slide: 'Slide 9',      Icon: IconCube,     color: 'violet' },
   { n: '04', to: '/act/4', t: 'Star · Snowflake · Galaxy', s: 'Morph three schemas; ROLAP vs MOLAP vs HOLAP',            slide: 'Slides 10–13', Icon: IconStar,     color: 'silver' },
   { n: '06', to: '/act/6', t: 'Mining → AI',              s: 'Five live mini-models: classification, regression, clustering, association, anomaly', slide: 'Slides 20–23', Icon: IconBrain, color: 'emerald' },
   { n: '07', to: '/act/7', t: 'SQL Playground',           s: 'Query Bronze / Silver / Gold side-by-side in your browser', slide: 'Bonus',       Icon: IconTerminal, color: 'default' },
@@ -71,7 +71,7 @@ export default function Overview() {
         </>}
         title={<>The <span className="shimmer-text">Medallion</span> playground for Data &amp; AI.</>}
         subtitle={<>
-          A live, in-browser walk-through of how a data warehouse actually works —
+          A live, in-browser walk-through of how a data warehouse actually works -
           from messy CSVs through Bronze → Silver → Gold, into BI dashboards, anomaly
           detection, and a CFO chat panel that answers plain-English questions over
           your data using a <strong>local LLM</strong>. Click anything. Break it. Reset. Repeat.
@@ -93,7 +93,7 @@ export default function Overview() {
         illustration={<DataFlowIllustration />}
       />
 
-      {/* highlights strip — fast visual proof of breadth */}
+      {/* highlights strip - fast visual proof of breadth */}
       <section className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-10">
         {HIGHLIGHTS.map((h, i) => (
           <motion.div
@@ -114,7 +114,7 @@ export default function Overview() {
         ))}
       </section>
 
-      {/* Hero acts — Medallion + CFO Lab side by side */}
+      {/* Hero acts - Medallion + CFO Lab side by side */}
       <section className="mb-10">
         <SectionHeading
           eyebrow="Where to start"
@@ -201,7 +201,7 @@ export default function Overview() {
         />
         <p className="text-sm mb-5 max-w-3xl" style={{ color: 'var(--text-3)' }}>
           You'll touch at least three of these in your first three years. Each role lives
-          inside specific acts — engineers in Act 5, analysts in Act 7 + 9, scientists
+          inside specific acts - engineers in Act 5, analysts in Act 7 + 9, scientists
           in Act 6, AI engineers in Act 9.
         </p>
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -232,10 +232,9 @@ export default function Overview() {
       <Callout tone="gold" title="How to read Medallion Lab">
         <ul className="mt-1 space-y-1.5 list-disc list-inside marker:text-gold-400">
           <li>Data is fully synthetic and re-seeded on demand. Press <span className="kbd">R</span> in any act to reset.</li>
-          <li>Every act shows the real SQL or Python — read the code, then press the button.</li>
+          <li>Every act shows the real SQL or Python - read the code, then press the button.</li>
           <li>Act 5 is the lecture's anchor. Act 9 is the live demo's wow moment.</li>
-          <li>The floating chat (bottom-right) works on every page — ask the data anything.</li>
-          <li>All visuals are inline SVG. No icons, no emoji. The pattern matters more than the paint.</li>
+          <li>The floating chat (bottom-right) works on every page - ask the data anything.</li>
         </ul>
       </Callout>
     </div>

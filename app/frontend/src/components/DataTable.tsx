@@ -42,7 +42,7 @@ export function DataTable({
 }
 
 function formatCell(v: unknown): string {
-  if (v === null || v === undefined) return '—';
+  if (v === null || v === undefined) return '-';
   if (typeof v === 'number') return Number.isInteger(v) ? v.toString() : v.toFixed(3);
   if (typeof v === 'object') return JSON.stringify(v);
   return String(v);

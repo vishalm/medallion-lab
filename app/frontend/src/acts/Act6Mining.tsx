@@ -321,7 +321,7 @@ function Association() {
           they're "sticky". Amazon's "frequently bought together" is this in fancy clothes.
         </p>
         <p className="text-xs text-zinc-500 mt-4 leading-relaxed">
-          Try dropping <code>min-support</code> — rarer patterns surface, at the cost of noise.
+          Try dropping <code>min-support</code> - rarer patterns surface, at the cost of noise.
         </p>
       </Panel>
     </div>

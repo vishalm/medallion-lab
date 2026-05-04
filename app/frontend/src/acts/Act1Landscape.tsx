@@ -6,7 +6,7 @@ import { Stat } from '../components/Stat';
 import { fmtNum } from '../lib/format';
 
 // Approximate global-data-created estimates (IDC / Statista-style figures).
-// Teaching aid — not a forecast.
+// Teaching aid - not a forecast.
 const SERIES: { year: number; zb: number }[] = [
   { year: 2010, zb: 2 },   { year: 2012, zb: 6 },   { year: 2014, zb: 12 },
   { year: 2016, zb: 22 },  { year: 2018, zb: 33 },  { year: 2020, zb: 64 },
@@ -39,7 +39,7 @@ export default function Act1Landscape() {
         eyebrow="The Landscape"
         slideRef="4–6"
         title="Every company is now a data company."
-        subtitle="In 2026 there is no such thing as a 'non-tech' business. Airline, bank, retailer, hospital — all quietly running a data/AI org the size of a small country. The market is not short on demand; it is short on people who know what they are doing."
+        subtitle="In 2026 there is no such thing as a 'non-tech' business. Airline, bank, retailer, hospital - all quietly running a data/AI org the size of a small country. The market is not short on demand; it is short on people who know what they are doing."
       />
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
@@ -51,7 +51,7 @@ export default function Act1Landscape() {
 
       <Panel
         title="Data volume, 2010 → 2027"
-        subtitle="Each dot is a year. Watch the curve bend post-2020 — that's the jump you live in."
+        subtitle="Each dot is a year. Watch the curve bend post-2020 - that's the jump you live in."
         right={
           <button
             onClick={() => setCursor(0)}
@@ -137,7 +137,7 @@ export default function Act1Landscape() {
 
         <p className="mt-4 text-sm text-zinc-400 leading-relaxed max-w-3xl">
           Over <strong className="text-zinc-200">90%</strong> of the world's data was created after 2022. The curve
-          bends because compute got cheap, storage got cheaper, and every interaction — tap, swipe, sensor read —
+          bends because compute got cheap, storage got cheaper, and every interaction - tap, swipe, sensor read -
           now leaves a row somewhere. That is the economy you are about to walk into.
         </p>
       </Panel>

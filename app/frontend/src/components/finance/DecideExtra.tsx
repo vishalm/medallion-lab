@@ -3,9 +3,9 @@
  *
  * Three bite-size charts the CFO actually looks at:
  *   - Daily spend trend (last ~90 days, area chart)
- *   - Currency mix (donut)         — AED vs USD originals
- *   - Source mix   (donut)         — Concur vs Corporate Card
- *   - Category × Department radar  — multi-dimension dept profile
+ *   - Currency mix (donut)         - AED vs USD originals
+ *   - Source mix   (donut)         - Concur vs Corporate Card
+ *   - Category × Department radar  - multi-dimension dept profile
  */
 import { useEffect, useMemo, useState } from 'react';
 import { Panel } from '../Panel';
@@ -86,7 +86,7 @@ export function DecideExtra() {
 
       <Panel
         title="Department fingerprint · category radar"
-        subtitle="Each axis is a spend category. Departments overlap to reveal where they're alike — and where they're not."
+        subtitle="Each axis is a spend category. Departments overlap to reveal where they're alike - and where they're not."
       >
         {radarData.length > 0 && catByDept
           ? <RadarMulti
@@ -98,7 +98,7 @@ export function DecideExtra() {
           : <div className="text-xs t-4 py-6 text-center">loading…</div>}
       </Panel>
 
-      <Callout tone="violet" title="Teaching point — extra DECIDE charts">
+      <Callout tone="violet" title="Teaching point - extra DECIDE charts">
         Same Silver layer, four different views. The radar in particular
         lets students <em>see</em> dept identity instantly: Marketing balloons
         on Marketing-category, Engineering on Software, Operations on

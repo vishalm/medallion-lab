@@ -63,7 +63,7 @@ export const api = {
   sqlRun: (sql: string) => request<any>(`/act7/run`, { method: 'POST', body: JSON.stringify({ sql }) }),
   sqlExplain: (sql: string) => request<any>(`/act7/explain`, { method: 'POST', body: JSON.stringify({ sql }) }),
 
-  // Act 9 — CFO Finance Lab
+  // Act 9 - CFO Finance Lab
   finRaw: (source: 'concur' | 'card', limit = 25) =>
     request<{ source: string; rows: any[] }>(`/finance/raw/${source}?limit=${limit}`),
   finCounts: () => request<Record<string, number>>(`/finance/counts`),

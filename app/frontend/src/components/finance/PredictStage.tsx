@@ -34,11 +34,11 @@ export function PredictStage() {
   return (
     <div className="space-y-6">
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
-        <Stat label="Total transactions" value={data ? fmtNum(data.total_rows) : '—'} />
+        <Stat label="Total transactions" value={data ? fmtNum(data.total_rows) : '-'} />
         <Stat label="Flagged outliers" tone="rose"
-          value={data ? fmtNum(data.outlier_count) : '—'}
+          value={data ? fmtNum(data.outlier_count) : '-'}
           hint={data ? `${(data.outlier_count / Math.max(1, data.total_rows) * 100).toFixed(1)}% of total` : undefined} />
-        <Stat label="Median txn (AED)" value={data ? fmtMoney(data.median_amount_aed) : '—'} />
+        <Stat label="Median txn (AED)" value={data ? fmtMoney(data.median_amount_aed) : '-'} />
         <Stat label="Sensitivity" tone="gold"
           value={`${(sensitivity * 100).toFixed(1)}%`}
           hint="contamination parameter" />
@@ -88,7 +88,7 @@ export function PredictStage() {
                       {fmtMoney(row.amount_aed)} AED
                     </span>
                     <span className="text-xs text-zinc-400">
-                      {row.vendor ?? '—'} · {row.category ?? '—'}
+                      {row.vendor ?? '-'} · {row.category ?? '-'}
                     </span>
                   </div>
                   <code className="text-[11px] text-zinc-500 font-mono shrink-0">
@@ -115,11 +115,11 @@ export function PredictStage() {
         )}
       </Panel>
 
-      <Callout tone="violet" title="Teaching point — PREDICT">
-        This is an <strong>Isolation Forest</strong> — unsupervised, no
+      <Callout tone="violet" title="Teaching point - PREDICT">
+        This is an <strong>Isolation Forest</strong> - unsupervised, no
         labels needed. It learns the &ldquo;normal&rdquo; shape of expenses
         across amount, day-of-week, dept, and category. Anything far from
-        that shape gets flagged. Crank the sensitivity slider up — the list
+        that shape gets flagged. Crank the sensitivity slider up - the list
         grows with smaller weirdness (false-positive cost). Drop it to 1%
         and only the high-blast-radius outliers remain. Choosing that
         slider is the entire job of an ML/risk team. Same algorithm powers

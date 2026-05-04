@@ -116,7 +116,7 @@ export default function Act4Schemas() {
         <span className="mt-1 block">
           <strong className="text-violet-200">Start STAR.</strong> Snowflake only if a dim is huge and
           rarely changes (e.g. a product catalog with 5M SKUs). Galaxy arrives on its own when the
-          business adds a second fact table — returns, inventory, clicks. Don't pre-engineer it.
+          business adds a second fact table - returns, inventory, clicks. Don't pre-engineer it.
         </span>
       </StudentNote>
     </div>

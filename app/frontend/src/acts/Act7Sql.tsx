@@ -113,7 +113,7 @@ export default function Act7Sql() {
             ))}
           </ul>
           <p className="text-[11px] text-zinc-500 mt-6 leading-relaxed">
-            The database is read-only. You can't drop, insert, or alter —
+            The database is read-only. You can't drop, insert, or alter -
             try it, and you'll get a friendly error.
           </p>
         </Panel>
@@ -122,7 +122,7 @@ export default function Act7Sql() {
       <div className="mt-6">
         <StudentNote title="What you're really learning here">
           Open the <strong>DQ events</strong> example and run it. That single query is what every
-          production observability tool — Monte Carlo, Great Expectations, Soda, Elementary —
+          production observability tool - Monte Carlo, Great Expectations, Soda, Elementary -
           reduces to under the hood: a SELECT over a log of anomalies. The product is the alerts,
           the dashboards, the pager. The core is a query.
         </StudentNote>

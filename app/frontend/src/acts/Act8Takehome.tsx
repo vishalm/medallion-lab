@@ -6,12 +6,12 @@ import { Link } from 'react-router-dom';
 import { IconArrowRight } from '../icons';
 
 const THINGS: { front: string; back: string; to?: string }[] = [
-  { front: 'OLTP runs the business. OLAP understands it. Don\'t mix them.', back: 'See Act 2 — watch OLTP latency spike the moment an OLAP aggregate runs on it.', to: '/act/2' },
-  { front: 'Start with a STAR schema. Everyone does. Everyone should.', back: 'See Act 4 — morph STAR → SNOWFLAKE → GALAXY and feel the joins multiply.', to: '/act/4' },
-  { front: 'ELT replaced ETL because cloud compute got cheaper than transform servers.', back: 'See Act 5 — data loads raw into Bronze first; transforms happen inside the warehouse.', to: '/act/5' },
+  { front: 'OLTP runs the business. OLAP understands it. Don\'t mix them.', back: 'See Act 2 - watch OLTP latency spike the moment an OLAP aggregate runs on it.', to: '/act/2' },
+  { front: 'Start with a STAR schema. Everyone does. Everyone should.', back: 'See Act 4 - morph STAR → SNOWFLAKE → GALAXY and feel the joins multiply.', to: '/act/4' },
+  { front: 'ELT replaced ETL because cloud compute got cheaper than transform servers.', back: 'See Act 5 - data loads raw into Bronze first; transforms happen inside the warehouse.', to: '/act/5' },
   { front: 'Bronze → Silver → Gold is the default mental model. Memorize it.', back: 'Act 5 is built around exactly this. Inject dirt, replay, inspect each layer.', to: '/act/5' },
   { front: '70% of a data scientist\'s job is cleaning data. Accept it early.', back: 'Act 5\'s DQ log shows what "cleaning" actually looks like: quarantine, log, replay.', to: '/act/5' },
-  { front: 'Classification · Regression · Clustering · Association · Anomaly — pattern-match the problem.', back: 'Act 6 — five live demos, one per shape.', to: '/act/6' },
+  { front: 'Classification · Regression · Clustering · Association · Anomaly - pattern-match the problem.', back: 'Act 6 - five live demos, one per shape.', to: '/act/6' },
   { front: 'GenAI made data quality MORE important, not less. RAG without clean data is a liar.', back: 'The Gold layer in Act 5 is exactly what a RAG system should be grounded on.', to: '/act/5' },
   { front: 'Data quality is a religion, not a stage. Monitor schemas and distributions always.', back: 'The DQ log in Act 5 is the tiny version of Monte Carlo / Great Expectations / Soda.', to: '/act/5' },
   { front: 'Pick ONE cloud stack and go deep. T-shaped beats shallow-across-ten.', back: 'Every tool in the modern stack is a dialect of the ideas in Acts 4–7.' },
@@ -41,7 +41,7 @@ export default function Act8Takehome() {
           But <span className="text-gold-300">OLTP vs OLAP</span>,{' '}
           <span className="text-gold-300">facts vs dimensions</span>,{' '}
           <span className="text-gold-300">batch vs streaming</span>, and{' '}
-          <span className="text-gold-300">Bronze vs Gold</span> — those are forever.
+          <span className="text-gold-300">Bronze vs Gold</span> - those are forever.
           Learn the patterns. The tools are just the accent.
         </p>
       </Panel>

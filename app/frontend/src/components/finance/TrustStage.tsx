@@ -10,7 +10,7 @@ import { IconArrowRight, IconBolt, IconCheck, IconPlay } from '../../icons';
 type LayerKey = 'concur' | 'card' | 'silver' | 'gold_spend' | 'gold_vendors';
 type Tone = 'bronze' | 'silver' | 'gold';
 
-// Static class lookup — Tailwind purges classes it can't see at build
+// Static class lookup - Tailwind purges classes it can't see at build
 // time, so we never interpolate `border-${tone}-...` style strings.
 const TAB_CLASS: Record<Tone, string> = {
   bronze: 'border-bronze-500/60 bg-bronze-500/10 text-bronze-100',
@@ -134,10 +134,10 @@ export function TrustStage() {
         <DataTable rows={rows} maxHeight={360} />
       </Panel>
 
-      <Callout tone="violet" title="Teaching point — TRUST">
+      <Callout tone="violet" title="Teaching point - TRUST">
         Bronze is what landed. Silver is what's true. Gold is what's useful.
         Press <strong>Run pipeline</strong>, then switch to the{' '}
-        <em>Silver · unified</em> tab — &ldquo;AMZN MKTPLACE&rdquo; and
+        <em>Silver · unified</em> tab - &ldquo;AMZN MKTPLACE&rdquo; and
         &ldquo;Amazon&rdquo; have collapsed into one canonical vendor. Same
         shape powers Databricks, Snowflake, Microsoft Fabric: messy → trusted → opinionated.
       </Callout>
@@ -179,7 +179,7 @@ function LayerCard({
           <li key={i} className="flex items-baseline justify-between gap-3">
             <span className="text-zinc-400 text-xs">{it.label}</span>
             <span className="font-mono tabular-nums text-zinc-100">
-              {it.n === undefined ? '—' : fmtNum(it.n)}
+              {it.n === undefined ? '-' : fmtNum(it.n)}
             </span>
           </li>
         ))}

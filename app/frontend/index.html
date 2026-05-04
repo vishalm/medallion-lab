@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Medallion Lab — hands-on Data &amp; AI for students</title>
+    <title>Medallion Lab - hands-on Data &amp; AI for students</title>
     <meta name="description" content="Medallion Lab is a hands-on, browser-based playground for data warehousing and AI. Nine interactive acts cover OLTP vs OLAP, cubes, star schemas, the Medallion pipeline (Bronze → Silver → Gold), mining techniques, a SQL playground, and a CFO Finance Lab with text-to-SQL over a local LLM." />
-    <meta property="og:title" content="Medallion Lab — hands-on Data & AI" />
+    <meta property="og:title" content="Medallion Lab - hands-on Data & AI" />
     <meta property="og:description" content="Nine interactive acts. One Medallion pipeline. A CFO Finance Lab with local-LLM text-to-SQL. Built for students who want to feel how a warehouse works." />
     <meta property="og:type" content="website" />
     <meta name="theme-color" content="#0a0a0e" />
@@ -30,7 +30,7 @@
 
       // Pre-paint theme: dark by default (lecture-rehearsed on dark);
       // only honour an explicit user override saved in localStorage.
-      // Runs before React mounts so there's no flash on first paint —
+      // Runs before React mounts so there's no flash on first paint -
       // matters most on the GitHub Pages cold load over a slow link.
       (function () {
         try {
@@ -40,7 +40,7 @@
           html.classList.remove(theme === 'dark' ? 'light' : 'dark');
           html.classList.add(theme);
           html.style.colorScheme = theme;
-        } catch (e) { /* localStorage blocked — already dark from html attr */ }
+        } catch (e) { /* localStorage blocked - already dark from html attr */ }
       })();
     </script>
   </head>

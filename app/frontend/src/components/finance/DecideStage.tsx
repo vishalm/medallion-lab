@@ -85,19 +85,19 @@ export function DecideStage() {
     <div className="space-y-6">
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
         <Stat label="Total spend" tone="gold"
-          value={kpis ? `${fmtMoney(kpis.total_aed)} AED` : '—'}
+          value={kpis ? `${fmtMoney(kpis.total_aed)} AED` : '-'}
           hint={kpis ? `${kpis.date_min} → ${kpis.date_max}` : undefined} />
-        <Stat label="Transactions" value={kpis ? fmtNum(kpis.txn_count) : '—'} />
-        <Stat label="Vendors" value={kpis ? fmtNum(kpis.vendor_count) : '—'} />
+        <Stat label="Transactions" value={kpis ? fmtNum(kpis.txn_count) : '-'} />
+        <Stat label="Vendors" value={kpis ? fmtNum(kpis.vendor_count) : '-'} />
         <Stat label="Top-5 concentration" tone="violet"
-          value={kpis ? `${kpis.top5_concentration_pct.toFixed(1)}%` : '—'}
+          value={kpis ? `${kpis.top5_concentration_pct.toFixed(1)}%` : '-'}
           hint="Pareto: how much of total spend goes to the top 5 vendors" />
       </div>
 
       <div className="grid lg:grid-cols-2 gap-6">
         <Panel
           title="Spend by department × month"
-          subtitle="Stacked bar — click any segment to drill into the rows behind it"
+          subtitle="Stacked bar - click any segment to drill into the rows behind it"
         >
           <ResponsiveContainer width="100%" height={260}>
             <BarChart data={spendChartData} margin={{ top: 10, right: 8, left: 0, bottom: 0 }}>
@@ -194,8 +194,8 @@ export function DecideStage() {
         </Panel>
       )}
 
-      <Callout tone="violet" title="Teaching point — DECIDE">
-        Click any segment of the bar chart or any vendor bar — the panel
+      <Callout tone="violet" title="Teaching point - DECIDE">
+        Click any segment of the bar chart or any vendor bar - the panel
         opens with the row-level transactions behind it, just like
         click-through in Power BI.{' '}
         <strong>Every CFO chart is a <code className="text-gold-300">SELECT … GROUP BY</code>{' '}

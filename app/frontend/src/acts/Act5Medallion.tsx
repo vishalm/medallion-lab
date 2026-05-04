@@ -129,9 +129,9 @@ export default function Act5Medallion() {
     const queue: { caption: string; delay: number; action?: () => Promise<void> | void }[] = [
       { caption: 'Start with a clean warehouse. Bronze has raw rows; Silver and Gold mirror it.', delay: 0 },
       { caption: "Here's Act 5's trick: we'll break Bronze on purpose.", delay: 3800 },
-      { caption: 'Schema drift — upstream renamed a column. Injecting 30 bad rows.', delay: 7000,
+      { caption: 'Schema drift - upstream renamed a column. Injecting 30 bad rows.', delay: 7000,
         action: async () => { await api.inject('drift'); await refresh(); } },
-      { caption: 'Now the null flood — a CRM feed forgot customer_id.', delay: 10500,
+      { caption: 'Now the null flood - a CRM feed forgot customer_id.', delay: 10500,
         action: async () => { await api.inject('nulls'); await refresh(); } },
       { caption: 'Replaying the pipeline. Watch Silver catch every issue…', delay: 14000,
         action: async () => { const r = await api.replay(); setLastReplay(r); await refresh(); setStep(3); } },
@@ -180,7 +180,7 @@ export default function Act5Medallion() {
         eyebrow="The Hero · Modern Stack"
         slideRef="14–18, 24"
         title="Bronze → Silver → Gold."
-        subtitle="If you remember one diagram from the lecture, let it be this one. Every modern platform — Databricks, Snowflake, Fabric, BigQuery — is a dialect of Bronze-Silver-Gold. Inject dirty data from the slide-24 war stories and watch the pipeline catch it."
+        subtitle="If you remember one diagram from the lecture, let it be this one. Every modern platform - Databricks, Snowflake, Fabric, BigQuery - is a dialect of Bronze-Silver-Gold. Inject dirty data from the slide-24 war stories and watch the pipeline catch it."
       >
         <div className="flex flex-wrap items-center gap-2">
           <button onClick={() => inject('drift')} disabled={busy || narrating} className="btn-danger">
@@ -275,15 +275,15 @@ export default function Act5Medallion() {
         <StudentNote title="Try it in 90 seconds">
           <ol className="mt-2 space-y-1 list-decimal list-inside marker:text-violet-300">
             <li>Press <span className="kbd">D</span> (drift) → <span className="kbd">N</span> (nulls) to pollute Bronze.</li>
-            <li>Press <span className="kbd">Space</span> to replay. Silver won't grow — the bad rows are caught.</li>
+            <li>Press <span className="kbd">Space</span> to replay. Silver won't grow - the bad rows are caught.</li>
             <li>Click <strong>Silver</strong> on the table selector to inspect it.</li>
-            <li>Scroll to the <strong>Data-quality events</strong> panel — each injection produced a row.</li>
+            <li>Scroll to the <strong>Data-quality events</strong> panel - each injection produced a row.</li>
           </ol>
         </StudentNote>
 
         <WarStory title={`Slide 24 lives here`}>
           Schema drift, silent duplicates, and null floods are the three ways production pipelines fail
-          quietly. You're about to trip every one of them — safely — and watch the validator win.
+          quietly. You're about to trip every one of them - safely - and watch the validator win.
         </WarStory>
       </div>
 
@@ -321,7 +321,7 @@ export default function Act5Medallion() {
             exit={{ opacity: 0 }}
             className="mt-6"
           >
-            <Panel title="Last replay · what the validator caught" subtitle="caught > missed — the religion of data quality" tone="gold">
+            <Panel title="Last replay · what the validator caught" subtitle="caught > missed - the religion of data quality" tone="gold">
               <div className="grid sm:grid-cols-4 gap-3">
                 <Stat label="Parsed OK" value={lastReplay.silver.parsed_ok} tone="emerald" />
                 <Stat label="Schema drift dropped" value={lastReplay.silver.dropped_schema} tone="rose" />
@@ -383,7 +383,7 @@ export default function Act5Medallion() {
             </div>
             <p className="mt-2 text-zinc-300 leading-relaxed">
               Raw. Source-shaped. We keep the original JSON so we can re-run anything.
-              Zero business logic lives here — it's a landing pad.
+              Zero business logic lives here - it's a landing pad.
             </p>
             <div className="mt-3 font-mono text-[11px] text-bronze-100/80">
               INSERT payload_json AS-IS
@@ -423,7 +423,7 @@ export default function Act5Medallion() {
         In Bronze, that is a JSON blob from a POS terminal. In Silver, it's a typed row with a valid
         customer_id FK. In Gold, it's one row in <code>gold_fact_sales</code> plus references to
         <code>dim_customer</code>, <code>dim_product</code>, <code>dim_store</code>, <code>dim_date</code>
-        — the exact shape a star schema was invented for. Try the layer selector above with
+        - the exact shape a star schema was invented for. Try the layer selector above with
         that story in your head.
       </Callout>
     </div>
