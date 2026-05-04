@@ -57,6 +57,11 @@ ollama_models/
 notebooks/.ipynb_checkpoints/
 notebooks/*.nbconvert.ipynb
 
+# ----- Playwright artefacts (e2e) -------------------------------------
+app/frontend/playwright-report/
+app/frontend/test-results/
+app/frontend/.playwright/
+
 # ----- Tooling / caches -----------------------------------------------
 .cache/
 .parcel-cache/
