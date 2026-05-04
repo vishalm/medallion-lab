@@ -4,8 +4,12 @@
  * The CSS variables in styles.css read `html.dark` / `html.light` and swap
  * the entire token set. JS just toggles those classes.
  *
- * On first visit we follow `prefers-color-scheme`; after the user picks
- * we honour that pick across reloads.
+ * Dark is the default everywhere (local, Railway, GitHub Pages). The OS
+ * `prefers-color-scheme` is intentionally ignored on first visit — the
+ * lecture is rehearsed in dark, projector contrast is calibrated for dark,
+ * and we don't want a student's OS preference to flip the demo. The light
+ * theme is still available via the toggle in the nav rail and persists in
+ * localStorage once chosen.
  */
 import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 import type { ReactNode } from 'react';
@@ -20,7 +24,7 @@ function readInitial(): Theme {
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved === 'light' || saved === 'dark') return saved;
   } catch { /* ignore */ }
-  return window.matchMedia?.('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+  return 'dark';
 }
 
 function applyTheme(t: Theme) {
