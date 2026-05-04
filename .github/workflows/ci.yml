@@ -68,7 +68,7 @@ jobs:
 
       - name: Install npm deps
         working-directory: app/frontend
-        run: npm ci
+        run: npm install
 
       - name: Type-check
         working-directory: app/frontend

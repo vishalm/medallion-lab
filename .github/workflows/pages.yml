@@ -46,7 +46,7 @@ jobs:
 
       - name: Install npm deps
         working-directory: app/frontend
-        run: npm ci
+        run: npm install
 
       - name: Build with subpath base
         working-directory: app/frontend
